@@ -9,12 +9,15 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
+import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,6 +26,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author hcadavid
  */
 public class InMemoryPersistenceTest {
+
+    BlueprintsServices bps = new BlueprintsServices();
+    
+
+    // @Test
+    // public void addNewBlueprintTest(){
+    //     Point[] pt=new Point[]{new Point(20, 20),new Point(30, 30)};
+    //     Blueprint bp = new Blueprint("Matt","Design",pt);
+    //     InMemoryBlueprintPersistence ibpp=new InMemoryBlueprintPersistence();
+    //     bps.setBlueprintsPersistence(ibpp);
+    //     try {
+    //         bps.addNewBlueprint(bp);
+    //     } catch (BlueprintPersistenceException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
     
     @Test
     public void saveNewAndLoadTest() throws BlueprintPersistenceException, BlueprintNotFoundException{
