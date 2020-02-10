@@ -9,7 +9,9 @@
 
     <context:component-scan base-package="edu.eci.arsw" />
     
-   <!-- Definition for blueprintsPersistence bean -->
-   <bean id = "blueprintsPersistence" class = "edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence"></bean>
+	<!-- Definition for blueprintsPersistence bean -->
+	<bean id = "blueprintsPersistence" class = "edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence"></bean>
+	<bean id = "blueprintsFilter" class = "edu.eci.arsw.blueprints.persistence.impl.RedundancyBlueprintFilter"></bean>
     
+
 </beans>

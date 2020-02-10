@@ -9,7 +9,6 @@ import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
-import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import edu.eci.arsw.blueprints.persistence.impl.InMemoryBlueprintPersistence;
 import edu.eci.arsw.blueprints.services.BlueprintsServices;
 import java.util.logging.Level;
@@ -73,7 +72,8 @@ public class InMemoryPersistenceTest {
         
     }
     
-    @Test
+    @SuppressWarnings("resource")
+	@Test
     public void getBluePrintService (){
         Point[] pts3=new Point[]{new Point(100, 100),new Point(100, 100)};
         Blueprint bp3 =new Blueprint("pruebastian", "pintura",pts3);
@@ -88,7 +88,8 @@ public class InMemoryPersistenceTest {
         
     }
     
-    @Test
+    @SuppressWarnings("resource")
+	@Test
     public void getBluePrintByAuthorService () {
         Point[] pts4=new Point[]{new Point(200, 200),new Point(100, 100)};
         Point[] pts5=new Point[]{new Point(300, 300),new Point(200, 200)};

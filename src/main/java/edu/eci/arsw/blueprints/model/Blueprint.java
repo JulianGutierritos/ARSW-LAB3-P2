@@ -41,6 +41,10 @@ public class Blueprint {
         return points;
     }
     
+    public void setPoints(List<Point> points) {
+        this.points=points;
+    }
+    
     public void addPoint(Point p){
         this.points.add(p);
     }
