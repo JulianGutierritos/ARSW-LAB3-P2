@@ -9,7 +9,10 @@ import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintsFilter;
 
 public class RedundancyBlueprintFilter implements BlueprintsFilter {
-
+	
+	/**
+	 * Elimina los puntos que sean seguidos e iguales
+	 */
 	@Override
 	public List<Point> filter(List<Point> points) {
 		List<Point>newṔoints=new ArrayList<Point>();
@@ -20,10 +23,7 @@ public class RedundancyBlueprintFilter implements BlueprintsFilter {
 				newṔoints.add(prev);
 			}
 			else {
-				if(p.getX()==prev.getX() && p.getY()==prev.getY()) {
-					System.out.println(true);
-				}
-				else {
+				if(!(p.getX()==prev.getX() && p.getY()==prev.getY())) {
 					prev=p;
 					newṔoints.add(prev);
 				}

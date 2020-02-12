@@ -21,8 +21,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class BlueprintServicesTest {
 
-    
-
     public BlueprintsServices getBlueprintsServices() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         BlueprintsServices bps = ac.getBean(BlueprintsServices.class);
