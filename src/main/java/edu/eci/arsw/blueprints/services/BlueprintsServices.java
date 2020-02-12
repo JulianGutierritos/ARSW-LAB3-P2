@@ -79,30 +79,4 @@ public class BlueprintsServices {
         return bps;
     }
     
-    
-    /*public static void main(String[]args) {
-    	Point[] pts4=new Point[]{new Point(200, 200),new Point(200, 200), new Point(200, 200), new Point(400, 200)};
-    	
-        Blueprint bp4 =new Blueprint("pruebastina", "pintura",pts4);
-    	try {
-            ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-            BlueprintsServices bps = ac.getBean(BlueprintsServices.class);
-            bps.addNewBlueprint(bp4);
-            int e=0;
-            for(Blueprint b:bps.getBlueprintsByAuthor("pruebastina")) {
-            	List<Point>ps=b.getPoints();
-            	for(int i=0; i<ps.size();i++) {
-            		if(ps.get(i)!=null) {
-            			e++;
-            		}
-            	}
-            }
-            System.out.println(e);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }*/
-    
 }

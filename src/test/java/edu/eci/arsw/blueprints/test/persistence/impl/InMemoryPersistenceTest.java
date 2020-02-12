@@ -26,22 +26,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author hcadavid
  */
 public class InMemoryPersistenceTest {
-
-    BlueprintsServices bps = new BlueprintsServices();
-    
-
-    // @Test
-    // public void addNewBlueprintTest(){
-    //     Point[] pt=new Point[]{new Point(20, 20),new Point(30, 30)};
-    //     Blueprint bp = new Blueprint("Matt","Design",pt);
-    //     InMemoryBlueprintPersistence ibpp=new InMemoryBlueprintPersistence();
-    //     bps.setBlueprintsPersistence(ibpp);
-    //     try {
-    //         bps.addNewBlueprint(bp);
-    //     } catch (BlueprintPersistenceException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
     
     @Test
     public void saveNewAndLoadTest() throws BlueprintPersistenceException, BlueprintNotFoundException{
