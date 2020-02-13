@@ -15,6 +15,7 @@ import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
+import edu.eci.arsw.blueprints.model.Point;
 
 /**
  *
@@ -47,8 +49,8 @@ public class BlueprintsServices {
         this.bpp = bpp;
     }
     
-    public Set<Blueprint> getAllBlueprints(){
-        return null;
+    public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException{
+        return this.bpp.getAllBlueprints();
     }
     
     /**
@@ -60,7 +62,7 @@ public class BlueprintsServices {
      */
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
     	Blueprint bp=bpp.getBlueprint(author, name);
-    	filter.filter(bp.getPoints());
+    	//filter.filter(bp.getPoints());
         return bp;
     }
     
@@ -72,11 +74,24 @@ public class BlueprintsServices {
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException{
     	Set<Blueprint>bps=bpp.getBlueprintsByAuthor(author);
-    	for(Blueprint bp:bps) {
-    		bp.setPoints(filter.filter(bp.getPoints()));
-    	}
-    	
+    	//for(Blueprint bp:bps) {
+    		//bp.setPoints(filter.filter(bp.getPoints()));
+    	//}
         return bps;
     }
-    
+	
+	public List<Point> getPoints () throws BlueprintNotFoundException{
+		Set<Blueprint> bps = getAllBlueprints();
+		List<Point> res = new ArrayList<Point>();
+		List<Point> p = new ArrayList<Point>();
+		int i;
+		for (Blueprint bp : bps){
+			p = bp.getPoints();
+			for (i = 0 ; i < p.size() ; i++){
+				res.add(p.get(i));
+			}
+		}
+		return filter.filter(res);
+	}
+	
 }

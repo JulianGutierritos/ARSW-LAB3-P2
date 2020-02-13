@@ -34,11 +34,9 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
     @Override
     public void saveBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         if (blueprints.containsKey(new Tuple<>(bp.getAuthor(),bp.getName()))){
-            
             throw new BlueprintPersistenceException("The given blueprint already exists: "+bp);
         }
         else{
-            
             blueprints.put(new Tuple<>(bp.getAuthor(),bp.getName()), bp);
         }        
     }
@@ -60,5 +58,13 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence{
         return s;
         
     }
+	
+	public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException{
+		Set <Blueprint> s = new HashSet<>();
+        blueprints.entrySet().forEach((bp) -> {
+            s.add(bp.getValue());
+        });
+        return s;
+	}
     
 }
